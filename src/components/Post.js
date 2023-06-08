@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "../styles/post.css";
 
-const Post = ({ postContent }) => {
+const Post = ({ postContent, setLastUpvoted }) => {
   const [count, setCount] = useState(0);
   const { title, author, body, tags, date, isPublished } = postContent;
 
   const handleClick = () => {
     setCount((prev) => prev + 1);
+    setLastUpvoted(title);
   };
 
   return (
