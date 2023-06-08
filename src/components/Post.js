@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/post.css";
 
-const Post = ({ data }) => {
-  const { title, author, body, tags, date, isPublished } = data;
+const Post = ({ postContent }) => {
+  const [count, setCount] = useState(0);
+  const { title, author, body, tags, date, isPublished } = postContent;
+
+  const handleClick = () => {
+    setCount((prev) => prev + 1);
+  };
 
   return (
     <div className="post">
@@ -11,6 +17,10 @@ const Post = ({ data }) => {
       </div>
       <div className="post-author">Author: {author}</div>
       <div className="post-date">Published: {date}</div>
+      <div className="post-counter">
+        <button onClick={handleClick}>Upvote</button>
+        <span>Upvotes: {count}</span>
+      </div>
       <h3>Tags:</h3>
       <ul>
         {tags.map((element, i) => {

@@ -1,0 +1,9 @@
+.post-counter span {
+  margin-left: 1rem;
+}
+
+.post-counter,
+.post-author {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
