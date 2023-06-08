@@ -1,24 +1,22 @@
 import React from "react";
 
-const Post = (props) => {
+const Post = ({ data }) => {
+  const { title, author, body, tags, date, isPublished } = data;
+
   return (
     <div className="post">
       <div className="post-heading">
-        {
-          // TODO: Use data from props to populate title, author, date
-          //   published, body and tags, validate props
-        }
-        <h2>"title"</h2>
-        {
-          // TODO: show post body if isPublished, or 'Coming soon!' if not
-        }
+        <h2>{title}</h2>
+        {isPublished ? body : "Coming soon!"}
       </div>
-      <div className="post-author">Author: "author"</div>
-      <div className="post-date">Published: "date"</div>
+      <div className="post-author">Author: {author}</div>
+      <div className="post-date">Published: {date}</div>
       <h3>Tags:</h3>
-        {
-          // TODO: Create list of all all provided tags
-        }
+      <ul>
+        {tags.map((element, i) => {
+          return <li key={i}>{element}</li>;
+        })}
+      </ul>
     </div>
   );
 };
